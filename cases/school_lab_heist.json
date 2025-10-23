@@ -1,64 +1,141 @@
 {
-  "title": "The Science Wing Lab Heist",
+  "title": "Midnight Exam Leak",
+  "summary": "A major exam is scheduled for tomorrow morning. Overnight, the cabinet with printed exam papers was accessed and several booklets are missing. Students interview classmates and staff to discover who used a borrowed key, when, and why.",
   "characters": [
-    {"id":"eva","name":"Éva Kovács","role":"Lab Assistant","initials":"ÉK","color":"#60a5fa","scope":["shift logs","Wing B camera status","chemistry inventory"],"persona":"Nervous but honest. Will share factual notes only; refuses speculation."},
-    {"id":"mark","name":"Márk Tóth","role":"IT Technician","initials":"MT","color":"#f472b6","scope":["access badges","network logs","device memos"],"persona":"Pragmatic, a bit sarcastic. Focuses on technical facts."},
-    {"id":"rita","name":"Rita Szalai","role":"Caretaker","initials":"RS","color":"#34d399","scope":["master keys","doors and locks","after-hours movement"],"persona":"Observant and calm. Shares what she saw; avoids gossip."},
-    {"id":"bence","name":"Dr. Bence Nagy","role":"Head of Department","initials":"BN","color":"#a78bfa","scope":["budget emails","lab policy","equipment requests"],"persona":"Formal, concise. Sticks to policy and documented communication."},
-    {"id":"anna","name":"Anna Farkas","role":"Student Representative","initials":"AF","color":"#f59e0b","scope":["student complaints","club schedules","hallway observations"],"persona":"Helpful and direct; won’t accuse peers without evidence."}
+    {"id":"maya","name":"Maya Ellis","role":"High-achieving student","initials":"ME","color":"#f59e0b","scope":["study group","library use","exam pressure"],"persona":"Calm and prepared; avoids drama; speaks in a polished way."},
+    {"id":"ethan","name":"Ethan Brooks","role":"Robotics/tech student","initials":"EB","color":"#60a5fa","scope":["late lab work","building shortcuts","tools"],"persona":"Practical and guarded; knows the building; gets defensive when pressed."},
+    {"id":"sophie","name":"Sophie Miller","role":"Study group member (pressured helper)","initials":"SM","color":"#f472b6","scope":["study times","library corridor","friends"],"persona":"Nervous and hesitant; clearly hiding something small."},
+    {"id":"olivia","name":"Olivia Price","role":"Rival high-performer (red herring)","initials":"OP","color":"#34d399","scope":["library study","competition","fair play"],"persona":"Confident but fair; dislikes cheating."},
+    {"id":"jake","name":"Jake Turner","role":"Struggling student (red herring)","initials":"JT","color":"#a78bfa","scope":["common room","canteen area","discipline risk"],"persona":"Touchy about grades; honest about risk of getting caught."},
+    {"id":"helen","name":"Helen Ward","role":"Librarian (witness)","initials":"HW","color":"#f97316","scope":["study room sign-outs","who left when"],"persona":"Helpful and observant; gives times and names calmly."},
+    {"id":"sam","name":"Sam Patel","role":"Student prefect / hall monitor (witness)","initials":"SP","color":"#22d3ee","scope":["corridor observations","north stairwell"],"persona":"Clear and confident; gives simple sighting details."},
+    {"id":"mr_clarke","name":"Mr Clarke","role":"Exam coordinator (keyholder)","initials":"MC","color":"#fb7185","scope":["cabinet procedure","morning checks","no forced entry"],"persona":"Formal and precise; confirms method and rules."},
+    {"id":"ms_harris","name":"Ms Harris","role":"Admin assistant (handled key)","initials":"MH","color":"#84cc16","scope":["key handover","busy office","possible lapse"],"persona":"Uneasy but cooperative; realises she may have trusted the wrong person."},
+    {"id":"mr_doyle","name":"Mr Doyle","role":"Caretaker (facilities rounds)","initials":"MD","color":"#facc15","scope":["night rounds","north stairs","early morning sighting"],"persona":"Calm and factual; noticed a tote and nervous behaviour."}
   ],
   "clues": [
-    {"id":"cam_21_17","title":"Camera still 21:17","text":"Hooded figure enters Wing B at 21:17 carrying a tote bag.","tags":["camera","time","entrance"]},
-    {"id":"badge_clone_memo","title":"IT memo on badge cloning","text":"Warning: a misplaced reader can enable badge cloning if someone scans a badge nearby.","tags":["badge","cloning","method"]},
-    {"id":"chem_missing","title":"Missing reagents","text":"Two solvent bottles (2×1L) are missing; weight fits a tote.","tags":["inventory","method"]},
-    {"id":"door_autolock","title":"Door autolock rule","text":"Science wing doors auto-lock at 20:00; badge required after that.","tags":["access","time"]},
-    {"id":"budget_cuts","title":"Budget cuts email","text":"Severe cuts reduced lab allocations and overtime.","tags":["motive","email"]},
-    {"id":"mark_reader_issue","title":"Reader misplaced report","text":"A portable reader was found near the cafeteria outlet last week.","tags":["badge","device"]},
-    {"id":"rita_2115_sighting","title":"Caretaker sighting 21:15","text":"Rita saw a hood near Wing B ~21:15; face unclear; carrying a bag.","tags":["observation","time","appearance"]},
-    {"id":"lab_closed_2045","title":"Lab closed 20:45","text":"Éva logged Chem Lab B as closed at 20:45.","tags":["shift","time"]},
-    {"id":"key_cabinet_ok","title":"Key cabinet intact","text":"Master keys accounted for; no forced entry.","tags":["keys","security"]},
-    {"id":"student_meet_2100","title":"Student club schedule","text":"Robotics club ended ~21:00; several left via North stairwell.","tags":["students","time","location"]},
-    {"id":"network_sparse","title":"Sparse network logs","text":"After 21:00, Wi-Fi logs are sparse due to AP-B2 maintenance.","tags":["network","time"]},
-    {"id":"badge_log_gap","title":"Badge log anomaly","text":"Between 21:10–21:25, no valid Wing B badge entries recorded.","tags":["badge","time","anomaly"]}
+    {"id":"cctv_2348","title":"CCTV still 23:48","text":"Blurred figure in a dark jacket passes the north stairwell around 23:48 with a small tote. Face unclear.","tags":["camera","time","north_stairs"]},
+    {"id":"cabinet_open_check","title":"Cabinet open by morning","text":"Exam cabinet was found slightly ajar at 06:30. Inventory shows several booklets missing. No damage to lock.","tags":["storage","inventory","morning"]},
+    {"id":"badge_gap","title":"Badge log gap 23:40–00:10","text":"Electronic entry logs show no valid badge entries for the exam wing between 23:40 and 00:10.","tags":["access","logs","time"]},
+    {"id":"tote_found","title":"Tote near north stairs","text":"Canvas tote found near the north stairwell with sealed envelopes consistent with exam booklets (one missing) and a cafe receipt time-stamped 23:30.","tags":["physical","evidence","north_stairs"]},
+    {"id":"chat_snippet","title":"Paraphrased chat about 'early copy'","text":"A short paraphrase of messages mentions an 'early copy' and a price, with no details of the method.","tags":["digital","motive","market"]},
+    {"id":"library_log","title":"Library study room sign-out","text":"Study room used by Maya, Sophie, Olivia until about 23:15–23:20, then they left in the same general time window.","tags":["library","alibi","time"]},
+    {"id":"cafe_receipt","title":"Cafe receipt 23:30","text":"Receipt found in tote shows a snack purchase at 23:30. Staff recall evening shifts overlapping with students leaving the library.","tags":["cafe","time","physical"]},
+    {"id":"tool_checkout","title":"Robotics tool checkout","text":"A small toolkit was signed out by Ethan around 22:40 and returned near 00:10.","tags":["lab","time","ethan"]},
+    {"id":"no_forced_entry","title":"No forced entry","text":"Lock and hinges intact. Facilities note: 'Looks like a key was used; latch fine.'","tags":["security","method","keys"]},
+    {"id":"key_handover_hint","title":"Admin key handover (hint)","text":"Admin assistant recalls handing the key to a calm, polite sixth-form girl earlier in the day for a 'school task'. She assumed it was returned.","tags":["keys","access","daytime"]}
   ],
   "timeline": [
-    {"t":"2025-10-22T20:00:00","event":"Science wing doors auto-lock."},
-    {"t":"2025-10-22T20:45:00","event":"Chem Lab B closed by Éva (log saved)."},
-    {"t":"2025-10-22T21:00:00","event":"Robotics club ends near North stairwell."},
-    {"t":"2025-10-22T21:15:00","event":"Rita sees hooded figure near Wing B."},
-    {"t":"2025-10-22T21:17:00","event":"Camera still: hooded figure enters Wing B with tote."}
+    {"t":"2025-11-12T14:30:00","event":"Ms Harris briefly hands cabinet key to a calm sixth-form girl (pretext)."},
+    {"t":"2025-11-12T17:45:00","event":"Mr Clarke locks exam papers in the cabinet for morning."},
+    {"t":"2025-11-12T22:40:00","event":"Ethan signs out a small toolkit in the robotics lab."},
+    {"t":"2025-11-12T23:15:00","event":"Library study room closes; Maya, Sophie, Olivia seen leaving ~23:15–23:20."},
+    {"t":"2025-11-12T23:42:00","event":"Executor uses key to open cabinet quickly; removes several booklets to a tote."},
+    {"t":"2025-11-12T23:48:00","event":"CCTV captures blurred figure with tote near north stairwell."},
+    {"t":"2025-11-13T00:10:00","event":"Toolkit is returned; trio have separated."},
+    {"t":"2025-11-13T06:30:00","event":"Morning check: cabinet slightly open; missing exam booklets discovered."}
   ],
   "locations": [
-    {"id":"wing_b","name":"Wing B Entrance","access_rules":"Badge after 20:00","map_hint":"Nearest exit: North stairwell"},
-    {"id":"chem_lab_b","name":"Chem Lab B","access_rules":"Lab assistant or staff badge","map_hint":"Storage at the back"}
+    {"id":"exam_cabinet","name":"Exam cabinet (admin storage)","access_rules":"Locked; key via exam coordinator or admin assistant","map_hint":"Back corridor by exam wing"},
+    {"id":"north_stairs","name":"North stairwell","access_rules":"Public after hours; camera has partial blind spot","map_hint":"Near canteen and corridor to library"},
+    {"id":"robotics_lab","name":"Robotics lab","access_rules":"Club access; tool checkout log","map_hint":"Opposite side of exam wing"}
   ],
   "knowledge": {
-    "eva": [
-      {"text":"My shift log shows I closed Chem Lab B at 20:45 and verified camera feeds in Wing B."},
-      {"text":"Two 1L solvent bottles went missing this week; they would easily fit in a tote bag."},
-      {"text":"After 20:00, you need a valid badge to enter the science wing; I do not manage badges."}
+    "sophie": [
+      {"text":"I was around the library and study rooms. I stayed a bit late, but nothing unusual."},
+      {"text":"I didn’t notice anything strange. I was tired and just wanted to go home."},
+      {"text":"I don’t remember the exact time. It was late, sometime after eleven, I think."},
+      {"text":"I wasn’t really watching the corridor. I was just waiting around before heading out."},
+      {"text":"I might have been near them, but people walk around all the time at night."},
+      {"text":"I didn’t do anything. I was just there, okay?"},
+      {"text":"It wasn’t my idea. I didn’t plan anything. I just… didn’t know how to say no."},
+      {"text":"I didn’t touch the cabinet. I only waited. I wish I’d just gone home."}
     ],
-    "mark": [
-      {"text":"We issued a memo about a misplaced reader: if someone scans a badge there, cloning is possible."},
-      {"text":"Budget cut emails upset staff, but I only handle technical devices and logs."},
-      {"text":"Wi-Fi logs after 21:00 are sparse because AP-B2 was under maintenance; badge logs should still exist unless cloned."}
+    "ethan": [
+      {"text":"I stay late a lot. Robotics work, mostly. It’s normal for me."},
+      {"text":"I know the labs and corridors pretty well — you learn the shortcuts."},
+      {"text":"I know Maya and Sophie from classes. We study together sometimes."},
+      {"text":"I don’t check the clock every five minutes. I was fixing something in the lab."},
+      {"text":"I might have walked past that corridor. People pass there when moving between rooms."},
+      {"text":"It was dark. I wasn’t paying attention; I focus on my own work."},
+      {"text":"You don’t need to force a lock if someone’s already let you in — or if the right person handed you the key earlier."},
+      {"text":"It only takes a minute if you know what you’re looking for and you don’t hang around."},
+      {"text":"Taking a few is less suspicious than taking all. People panic when it’s late."},
+      {"text":"I don’t want to be a scapegoat. I passed through; I had reasons to be late."}
     ],
-    "rita": [
-      {"text":"Master keys stayed in the cabinet; I checked—no forced entry anywhere."},
-      {"text":"I saw a hood near Wing B around 21:15, couldn’t see a face; they carried something like a bag."},
-      {"text":"Doors auto-lock at 20:00; badges leave a record unless someone used a clone or tailgated."}
+    "maya": [
+      {"text":"I was in the library with the study group. We finished late; everyone is nervous about the exam."},
+      {"text":"It’s important, yes, but I revise carefully. I don’t take shortcuts."},
+      {"text":"I noticed people walking around, but it seemed like a normal busy night."},
+      {"text":"We left after eleven, I think. We packed up slowly."},
+      {"text":"I might have passed near that corridor; everyone uses it sometimes."},
+      {"text":"If someone had a key already, there would be no barrier at all — the cabinet isn’t checked again until morning."},
+      {"text":"Some people have advantages others never see. I didn’t want to fall behind."},
+      {"text":"Whoever did it must have planned ahead. You can’t get that close unless you know the routine."}
     ],
-    "bence": [
-      {"text":"We communicated severe budget reductions this term; overtime approvals were limited."},
-      {"text":"Lab access policy requires unique badge use. Any anomaly is investigated by IT and facilities."}
+    "olivia": [
+      {"text":"Library mostly. I left late because I was revising with two friends."},
+      {"text":"We’re in the same classes. We compare notes sometimes."},
+      {"text":"I want to do well, but I study. I don’t need shortcuts."},
+      {"text":"People call it a rivalry. We try to be our best; that’s school."},
+      {"text":"I left sometime after eleven. I was exhausted."},
+      {"text":"Those corridors connect everything. Everyone passes there sometimes."},
+      {"text":"Winning isn’t winning if you cheat."},
+      {"text":"Students shouldn’t handle keys. If someone did, a staff member trusted the wrong person."}
     ],
-    "anna": [
-      {"text":"Robotics club ended about 21:00; people left toward the North stairwell."},
-      {"text":"Some students mentioned a device near the cafeteria outlet last week; I thought it was for payments."}
+    "jake": [
+      {"text":"Common room, then I went home. I wasn’t hanging around the exam wing."},
+      {"text":"People always assume I’m the one messing up."},
+      {"text":"Everyone needs this exam. Doesn’t mean I’m a thief."},
+      {"text":"Late — around eleven-something. I didn’t check."},
+      {"text":"Loads of bags. It’s exam week."},
+      {"text":"I’m on thin ice already. If I got caught, I’d be out. I’m not stupid."},
+      {"text":"No busted locks, right? So someone had a way in. Not me."},
+      {"text":"Check the canteen camera around 23:30. Ask the caretaker; he walked past me."}
+    ],
+    "helen": [
+      {"text":"A group including Maya, Sophie, and Olivia signed out a study room until about 11:15."},
+      {"text":"They left close together, but people drifted as they packed up."},
+      {"text":"Maya and Sophie lingered a little longer than the others."},
+      {"text":"They left the study room around 11:20. The exam corridor is a short walk from there."}
+    ],
+    "sam": [
+      {"text":"I saw someone moving fast past the north stairwell."},
+      {"text":"Dark jacket, tote bag. Could have been a student heading out late."},
+      {"text":"Time? Around 11:45-ish."},
+      {"text":"Sealed envelopes at that hour? That sounds planned, not random."}
+    ],
+    "mr_doyle": [
+      {"text":"I saw someone with a tote near the north stairs just before midnight."},
+      {"text":"Couldn’t identify them — hoodie up, quick walk."},
+      {"text":"They looked nervous, not like someone just heading home."}
+    ],
+    "ms_harris": [
+      {"text":"Officially the cabinet key belongs to the exam coordinator. I only handle it briefly when needed."},
+      {"text":"Yes, I handled it earlier in the day. That’s normal before exam preparation."},
+      {"text":"I may have handed it to a student helper. It was a busy afternoon."},
+      {"text":"I thought it was placed back on my desk, but I was called away."},
+      {"text":"It’s possible the key stayed with a student longer than it should have."},
+      {"text":"A calm, polite sixth-form girl asked for it for a school task. I didn’t think anything of it at the time."}
+    ],
+    "mr_clarke": [
+      {"text":"Locked cabinet inside admin storage. I locked it at 5:45pm."},
+      {"text":"No damage to the lock or hinges. A forced entry would leave clear marks."},
+      {"text":"Only I and admin staff handle keys, and only briefly."},
+      {"text":"If the cabinet wasn’t forced, someone used a key. The breach was trust, not a broken door."}
     ]
   },
   "solution": {
-    "answer_key": {"perp":"Márk Tóth","motive":"budget cuts","method":"keycard clone","time":"21:10–21:25"},
-    "rubric": {"must":["perp","motive","method","time"],"bonus":["contradiction_resolved:badge_log_gap_explained"]}
+    "answer_key": {
+      "perp": ["Maya Ellis","Ethan Brooks"],
+      "motive": "academic pressure and fear of falling behind",
+      "method": "key borrowed under a pretext from admin during the day, then used late at night to open the cabinet without force",
+      "time": "23:40–00:05"
+    },
+    "explanation": "Ms Harris handed the key to a calm sixth-form girl earlier; it was not returned immediately. That night, Ethan used the key to open the cabinet quickly (no damage). CCTV and witnesses place a figure with a tote near the north stairs around 23:48. Library logs show Maya and Sophie leaving close to that time. Badge logs show a gap, but cameras and witnesses fill the timeline. Sophie acted as a lookout under social pressure.",
+    "rubric": {
+      "must": ["perp","motive","method","time"],
+      "bonus": ["identify_sophie_as_helper","explain_no_forced_entry","use_key_handover_hint"]
+    }
   }
 }
