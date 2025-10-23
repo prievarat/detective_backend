@@ -1,0 +1,64 @@
+{
+  "title": "The Science Wing Lab Heist",
+  "characters": [
+    {"id":"eva","name":"Éva Kovács","role":"Lab Assistant","initials":"ÉK","color":"#60a5fa","scope":["shift logs","Wing B camera status","chemistry inventory"],"persona":"Nervous but honest. Will share factual notes only; refuses speculation."},
+    {"id":"mark","name":"Márk Tóth","role":"IT Technician","initials":"MT","color":"#f472b6","scope":["access badges","network logs","device memos"],"persona":"Pragmatic, a bit sarcastic. Focuses on technical facts."},
+    {"id":"rita","name":"Rita Szalai","role":"Caretaker","initials":"RS","color":"#34d399","scope":["master keys","doors and locks","after-hours movement"],"persona":"Observant and calm. Shares what she saw; avoids gossip."},
+    {"id":"bence","name":"Dr. Bence Nagy","role":"Head of Department","initials":"BN","color":"#a78bfa","scope":["budget emails","lab policy","equipment requests"],"persona":"Formal, concise. Sticks to policy and documented communication."},
+    {"id":"anna","name":"Anna Farkas","role":"Student Representative","initials":"AF","color":"#f59e0b","scope":["student complaints","club schedules","hallway observations"],"persona":"Helpful and direct; won’t accuse peers without evidence."}
+  ],
+  "clues": [
+    {"id":"cam_21_17","title":"Camera still 21:17","text":"Hooded figure enters Wing B at 21:17 carrying a tote bag.","tags":["camera","time","entrance"]},
+    {"id":"badge_clone_memo","title":"IT memo on badge cloning","text":"Warning: a misplaced reader can enable badge cloning if someone scans a badge nearby.","tags":["badge","cloning","method"]},
+    {"id":"chem_missing","title":"Missing reagents","text":"Two solvent bottles (2×1L) are missing; weight fits a tote.","tags":["inventory","method"]},
+    {"id":"door_autolock","title":"Door autolock rule","text":"Science wing doors auto-lock at 20:00; badge required after that.","tags":["access","time"]},
+    {"id":"budget_cuts","title":"Budget cuts email","text":"Severe cuts reduced lab allocations and overtime.","tags":["motive","email"]},
+    {"id":"mark_reader_issue","title":"Reader misplaced report","text":"A portable reader was found near the cafeteria outlet last week.","tags":["badge","device"]},
+    {"id":"rita_2115_sighting","title":"Caretaker sighting 21:15","text":"Rita saw a hood near Wing B ~21:15; face unclear; carrying a bag.","tags":["observation","time","appearance"]},
+    {"id":"lab_closed_2045","title":"Lab closed 20:45","text":"Éva logged Chem Lab B as closed at 20:45.","tags":["shift","time"]},
+    {"id":"key_cabinet_ok","title":"Key cabinet intact","text":"Master keys accounted for; no forced entry.","tags":["keys","security"]},
+    {"id":"student_meet_2100","title":"Student club schedule","text":"Robotics club ended ~21:00; several left via North stairwell.","tags":["students","time","location"]},
+    {"id":"network_sparse","title":"Sparse network logs","text":"After 21:00, Wi-Fi logs are sparse due to AP-B2 maintenance.","tags":["network","time"]},
+    {"id":"badge_log_gap","title":"Badge log anomaly","text":"Between 21:10–21:25, no valid Wing B badge entries recorded.","tags":["badge","time","anomaly"]}
+  ],
+  "timeline": [
+    {"t":"2025-10-22T20:00:00","event":"Science wing doors auto-lock."},
+    {"t":"2025-10-22T20:45:00","event":"Chem Lab B closed by Éva (log saved)."},
+    {"t":"2025-10-22T21:00:00","event":"Robotics club ends near North stairwell."},
+    {"t":"2025-10-22T21:15:00","event":"Rita sees hooded figure near Wing B."},
+    {"t":"2025-10-22T21:17:00","event":"Camera still: hooded figure enters Wing B with tote."}
+  ],
+  "locations": [
+    {"id":"wing_b","name":"Wing B Entrance","access_rules":"Badge after 20:00","map_hint":"Nearest exit: North stairwell"},
+    {"id":"chem_lab_b","name":"Chem Lab B","access_rules":"Lab assistant or staff badge","map_hint":"Storage at the back"}
+  ],
+  "knowledge": {
+    "eva": [
+      {"text":"My shift log shows I closed Chem Lab B at 20:45 and verified camera feeds in Wing B."},
+      {"text":"Two 1L solvent bottles went missing this week; they would easily fit in a tote bag."},
+      {"text":"After 20:00, you need a valid badge to enter the science wing; I do not manage badges."}
+    ],
+    "mark": [
+      {"text":"We issued a memo about a misplaced reader: if someone scans a badge there, cloning is possible."},
+      {"text":"Budget cut emails upset staff, but I only handle technical devices and logs."},
+      {"text":"Wi-Fi logs after 21:00 are sparse because AP-B2 was under maintenance; badge logs should still exist unless cloned."}
+    ],
+    "rita": [
+      {"text":"Master keys stayed in the cabinet; I checked—no forced entry anywhere."},
+      {"text":"I saw a hood near Wing B around 21:15, couldn’t see a face; they carried something like a bag."},
+      {"text":"Doors auto-lock at 20:00; badges leave a record unless someone used a clone or tailgated."}
+    ],
+    "bence": [
+      {"text":"We communicated severe budget reductions this term; overtime approvals were limited."},
+      {"text":"Lab access policy requires unique badge use. Any anomaly is investigated by IT and facilities."}
+    ],
+    "anna": [
+      {"text":"Robotics club ended about 21:00; people left toward the North stairwell."},
+      {"text":"Some students mentioned a device near the cafeteria outlet last week; I thought it was for payments."}
+    ]
+  },
+  "solution": {
+    "answer_key": {"perp":"Márk Tóth","motive":"budget cuts","method":"keycard clone","time":"21:10–21:25"},
+    "rubric": {"must":["perp","motive","method","time"],"bonus":["contradiction_resolved:badge_log_gap_explained"]}
+  }
+}
