@@ -52,17 +52,29 @@
       {"text":"I didn’t touch the cabinet. I only waited. I wish I’d just gone home."}
     ],
     "ethan": [
-      {"text":"I stay late a lot. Robotics work, mostly. It’s normal for me."},
-      {"text":"I know the labs and corridors pretty well — you learn the shortcuts."},
-      {"text":"I know Maya and Sophie from classes. We study together sometimes."},
-      {"text":"I don’t check the clock every five minutes. I was fixing something in the lab."},
-      {"text":"I might have walked past that corridor. People pass there when moving between rooms."},
-      {"text":"It was dark. I wasn’t paying attention; I focus on my own work."},
-      {"text":"You don’t need to force a lock if someone’s already let you in — or if the right person handed you the key earlier."},
-      {"text":"It only takes a minute if you know what you’re looking for and you don’t hang around."},
-      {"text":"Taking a few is less suspicious than taking all. People panic when it’s late."},
-      {"text":"I don’t want to be a scapegoat. I passed through; I had reasons to be late."}
-    ],
+  { "text": "I was in the library with the others revising. It wasn’t anything unusual—just a late study session because everyone’s nervous about the exam. We packed up when it got quiet.", "intent":"timeline" },
+  { "text": "I left around nine, maybe a bit after. I didn’t check the clock exactly, but it wasn’t late. I wanted to clear my head before tomorrow.", "intent":"timeline" },
+  { "text": "Maya left before us—she said she’d studied enough and needed rest. The rest of us were still gathering our things.", "intent":"timeline" },
+  { "text": "Sophie stayed a little longer. She said she needed to finish copying something down. She always double-checks things when she’s stressed.", "intent":"timeline" },
+  { "text": "Olivia walked out just after Maya. She didn’t say much—looked like she just wanted to get home. Nothing felt unusual then.", "intent":"timeline" },
+  { "text": "People are coping… not great. This exam can change rankings, uni choices, scholarships. It’s a lot to carry if you don’t have a safety net.", "intent":"pressure" },
+  { "text": "Is the system fair? Not really. Some students can afford extra help; others can’t. We don’t all start from the same place.", "intent":"motive" },
+  { "text": "Some students look calm outside but inside they’re terrified of messing up. When you’re already behind, one exam can decide if you ever catch up.", "intent":"motive" },
+  { "text": "Only staff handle the papers—admin and senior leadership. Students aren’t supposed to be anywhere near them before exam day.", "intent":"access_general" },
+  { "text": "They’re kept locked in a cabinet until morning. The whole point is that no one sees them early.", "intent":"access_general", "citedClues":["no_forced_entry"] },
+  { "text": "Could someone break in? Not without getting caught. You’d have to know exactly what you were doing—and even then, if the door opens cleanly, no one asks questions.", "intent":"access_theory", "citedClues":["no_forced_entry"] },
+  { "text": "If someone really wanted to, they wouldn’t force anything—they’d use a key or access that looks legitimate. Systems don’t argue with a door that opens the right way.", "intent":"access_theory", "citedClues":["no_forced_entry"] },
+  { "text": "Where would they get a key? You don’t need the object if you know who handles it and when it’s left unattended. Timing matters more than the metal itself.", "intent":"access_slip", "escalation":"single", "citedClues":["key_handover_hint"] },
+  { "text": "Late evening is when routines get sloppy. People assume everything’s locked and no one’s watching. No one expects a student to still be around then.", "intent":"timing_hint", "citedClues":["badge_gap","cctv_2348"] },
+  { "text": "You’re asking if Sophie could’ve done it because she stayed late. Staying late doesn’t mean anything by itself—she didn’t even go near Clarke’s office. She just needed a breather.", "intent":"protect_sophie" },
+  { "text": "I don’t ‘know’ when keys are unattended—I mean that gaps exist. Security isn’t perfect; it just looks perfect until the wrong moment. Anyone watching closely could figure routines out.", "intent":"walkback" },
+  { "text": "You think I’ve planned something. It isn’t like that. When you feel like you’re hanging by a thread, your brain looks for exits before you even realise it. That’s not planning; that’s survival thinking.", "intent":"justification" },
+  { "text": "So could someone slip in unnoticed? If they didn’t make a scene, yes. Most systems stop force, not someone who looks like they belong there.", "intent":"access_theory", "citedClues":["no_forced_entry"] },
+  { "text": "Did I take the papers? You really think I’d throw everything away for that? It’s easy to point fingers when you’re not the one under constant pressure.", "intent":"accusation_soft_crack" },
+  { "text": "I might see how fragile the system is, but knowing and doing are different. I just wish people noticed the pressure before they started blaming others.", "intent":"accusation_soft_crack" },
+  { "text": "Am I covering for someone? No. I’m saying sometimes good people make bad choices when they’re desperate. That doesn’t make them bad—it means they ran out of air.", "intent":"accusation_soft_crack" }
+]
+
     "maya": [
       {"text":"I was in the library with the study group. We finished late; everyone is nervous about the exam."},
       {"text":"It’s important, yes, but I revise carefully. I don’t take shortcuts."},
@@ -139,3 +151,4 @@
     }
   }
 }
+
